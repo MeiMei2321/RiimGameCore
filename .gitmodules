@@ -1,0 +1,3 @@
+[submodule "Sources/RiimGBAGame"]
+	path = Sources/RiimGBAGame
+	url = https://github.com/MeiMei2321/mgba.git
