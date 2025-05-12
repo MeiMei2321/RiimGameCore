@@ -12,7 +12,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "RiimGameCore",
-            targets: ["RiimGameCore"]),
+            targets: ["RiimGameCore", "RiimGBASwift"]),
     ],
     dependencies: [
         .package(url: "https://github.com/weichsel/ZIPFoundation.git", from: "0.9.11"),
