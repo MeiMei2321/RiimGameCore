@@ -29,10 +29,10 @@ let package = Package(
             path: "Sources/RiimGBASwift",
             publicHeadersPath: "",
             cSettings: [
-//                .headerSearchPath("../"),
-//                .headerSearchPath("../RiimGBAGame"),
-//                .headerSearchPath("../RiimGBAGame/src"),
-//                .headerSearchPath("../RiimGBAGame/include"),
+                .headerSearchPath("../"),
+                .headerSearchPath("../RiimGBAGame"),
+                .headerSearchPath("../RiimGBAGame/src"),
+                .headerSearchPath("../RiimGBAGame/include"),
                 
                 .define("DM_CORE_GBA"),
                 .define("DDISABLE_THREADING"),
