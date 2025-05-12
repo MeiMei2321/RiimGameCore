@@ -10,6 +10,9 @@
 
 #import <CoreMotion/CoreMotion.h>
 
+@import RiimGameCore;
+
+
 #include <mgba-util/common.h>
 #include <mgba/core/blip_buf.h>
 #include <mgba/core/core.h>
@@ -27,7 +30,6 @@
 
 @import Foundation;
 
-@import RiimGameCore;
 
 const char* const binaryName = "mGBA";
 const char* const projectName = "mGBACore";
