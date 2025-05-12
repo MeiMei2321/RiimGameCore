@@ -30,7 +30,7 @@
 @import RiimGameCore;
 
 const char* const binaryName = "mGBA";
-const char* const projectName = "mGBADeltaCore";
+const char* const projectName = "mGBACore";
 const char* const projectVersion = "0.10.3";
 
 typedef NS_ENUM(NSInteger, mGBAGameInput) {
