@@ -26,7 +26,7 @@ let package = Package(
         ),
         .target(
             name: "RiimGBASwift",
-            dependencies: ["RiimGBAGameBridge"]
+            dependencies: ["RiimGBAGameBridge", "RiimGBAGame", "RiimGameCore"]
         ),
         .target(
             name: "RiimGBAGameBridge",
