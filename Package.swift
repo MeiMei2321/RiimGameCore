@@ -26,7 +26,42 @@ let package = Package(
         ),
         .target(
             name: "RiimGBASwift",
-            dependencies: ["RiimGBAGameBridge", "RiimGBAGame", "RiimGameCore"]
+            dependencies: ["RiimGBAGameBridge", "RiimGBAGame", "RiimGameCore"],
+            publicHeadersPath: "",
+            cSettings: [
+                .headerSearchPath("../"),
+                .headerSearchPath("../RiimGBAGame"),
+                .headerSearchPath("../RiimGBAGame/src"),
+                .headerSearchPath("../RiimGBAGame/include"),
+                
+                .define("DM_CORE_GBA"),
+                .define("DDISABLE_THREADING"),
+                .define("DMINIMAL_CORE", to: "1"),
+                .define("DMGBA_STANDALONE"),
+                .define("DHAVE_STRDUP"),
+                .define("DHAVE_XLOCALE"),
+                .define("DHAVE_STRNDUP"),
+                .define("DHAVE_STRLCPY"),
+                .define("DHAVE_LOCALTIME_R"),
+                .define("DHAVE_LOCALE"),
+                .define("DHAVE_STRTOF_L"),
+                .define("DHAVE_SNPRINTF_L"),
+                .define("DHAVE_SETLOCALE"),
+                
+                .define("M_CORE_GBA"),
+                .define("DISABLE_THREADING"),
+                .define("MINIMAL_CORE", to: "1"),
+                .define("MGBA_STANDALONE"),
+                .define("HAVE_STRDUP"),
+                .define("HAVE_XLOCALE"),
+                .define("HAVE_STRNDUP"),
+                .define("HAVE_STRLCPY"),
+                .define("HAVE_LOCALTIME_R"),
+                .define("HAVE_LOCALE"),
+                .define("HAVE_STRTOF_L"),
+                .define("HAVE_SNPRINTF_L"),
+                .define("HAVE_SETLOCALE"),
+            ]
         ),
         .target(
             name: "RiimGBAGameBridge",
