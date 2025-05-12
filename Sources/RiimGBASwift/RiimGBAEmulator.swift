@@ -8,6 +8,6 @@
 import Foundation
 @_exported import RiimGBAGameBridge
 
-class RiimGBAEmulator {
+public class RiimGBAEmulator {
     let bridge = mGBAEmulatorBridge.shared
 }
