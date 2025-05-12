@@ -11,7 +11,6 @@
 #import <CoreMotion/CoreMotion.h>
 
 #include <mgba-util/common.h>
-
 #include <mgba/core/blip_buf.h>
 #include <mgba/core/core.h>
 #include <mgba/core/cheats.h>
