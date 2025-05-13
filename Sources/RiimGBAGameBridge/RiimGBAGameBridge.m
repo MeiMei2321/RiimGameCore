@@ -143,7 +143,6 @@ static uint8_t luxLevel = 0;
 }
 
 #pragma mark - Emulation State -
-
 - (void)startWithGameURL:(NSURL *)URL
 {
     self.gameURL = URL;

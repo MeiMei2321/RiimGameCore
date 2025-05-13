@@ -121,7 +121,7 @@ public class AudioManager: NSObject, AudioRendering {
         }
     }
     
-    var frameDuration: Double = (1.0 / 60.0) {
+    public var frameDuration: Double = (1.0 / 60.0) {
         didSet {
             guard self.audioEngine.isRunning else { return }
             self.resetAudioEngine()
