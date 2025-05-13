@@ -386,13 +386,13 @@ static uint8_t luxLevel = 0;
 void _sampleRotationGBA(struct mRotationSource* source)
 {
     UNUSED(source);
-    if (!([mGBAEmulatorBridge.sharedBridge.motionManager isGyroActive] && [mGBAEmulatorBridge.sharedBridge.motionManager isAccelerometerActive]))
+    if (!([RiimGBAGameBridge.sharedBridge.motionManager isGyroActive] && [RiimGBAGameBridge.sharedBridge.motionManager isAccelerometerActive]))
     {
-        [mGBAEmulatorBridge.sharedBridge activateGyroscopeAndAccelerometer];
+        [RiimGBAGameBridge.sharedBridge activateGyroscopeAndAccelerometer];
     }
     
-    CMGyroData *gyroData = mGBAEmulatorBridge.sharedBridge.motionManager.gyroData;
-    CMAccelerometerData *accelerometerData = mGBAEmulatorBridge.sharedBridge.motionManager.accelerometerData;
+    CMGyroData *gyroData = RiimGBAGameBridge.sharedBridge.motionManager.gyroData;
+    CMAccelerometerData *accelerometerData = RiimGBAGameBridge.sharedBridge.motionManager.accelerometerData;
     
     gyroZ = gyroData.rotationRate.z * -1e8f * gyroscopeSensitivity;
     
