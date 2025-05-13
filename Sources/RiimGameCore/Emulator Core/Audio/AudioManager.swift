@@ -291,16 +291,14 @@ private extension AudioManager {
             guard let self = self else { return }
             
             self.renderingQueue.async {
-                if node?.isPlaying == true
-                {
+                if node?.isPlaying == true {
                     self.render(inputBuffer, into: outputBuffer)
                 }
             }
         }
     }
     
-    @objc func resetAudioEngine()
-    {
+    @objc func resetAudioEngine() {
         self.renderingQueue.sync {
             self.audioPlayerNode.reset()
             
@@ -431,5 +429,14 @@ private extension AudioManager {
         }
         
         return sourceNode
+    }
+}
+
+// MARK: - Replace
+public extension AudioManager {
+    func updateAudioFormat(_ audioFormat: AVAudioFormat) {
+        if audioFormat != self.audioFormat {
+            self.audioFormat = audioFormat
+        }
     }
 }
