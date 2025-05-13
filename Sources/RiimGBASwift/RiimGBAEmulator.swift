@@ -10,4 +10,5 @@ import Foundation
 
 public struct RiimGBAEmulator {
     public let bridge = mGBAEmulatorBridge.shared
+    static let share = RiimGBAEmulator()
 }
