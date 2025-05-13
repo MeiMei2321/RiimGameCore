@@ -439,4 +439,10 @@ public extension AudioManager {
             self.audioFormat = audioFormat
         }
     }
+    
+    func updateFrameDuration(_ value: Double) {
+        if value != self.frameDuration {
+            self.frameDuration = value
+        }
+    }
 }
