@@ -211,7 +211,7 @@ let package = Package(
                 "../RiimGBAGame/mGBA/src/util/vfs/vfs-fifo.c",
                 "../RiimGBAGame/mGBA/src/util/vfs/vfs-mem.c"
             ],
-            publicHeadersPath: "",
+            publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath(""),
                 .headerSearchPath("../RiimGBAGame/mGBA"),
