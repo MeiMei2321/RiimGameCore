@@ -6,55 +6,44 @@
 //  Copyright © 2016 Riley Testut. All rights reserved.
 //
 
-import AVFoundation
+@preconcurrency import AVFoundation
 
-internal extension AVAudioFormat
-{
+internal extension AVAudioFormat {
     var frameSize: Int {
         return Int(self.streamDescription.pointee.mBytesPerFrame)
     }
 }
 
-private extension AVAudioSession
-{
-    func setIgnitedCategory(_ micEnabled: Bool = false) throws
-    {
-        if micEnabled
-        {
+private extension AVAudioSession {
+    func setIgnitedCategory(_ micEnabled: Bool = false) throws {
+        if micEnabled {
             try AVAudioSession.sharedInstance().setCategory(.playAndRecord, options: [.mixWithOthers, .allowBluetoothA2DP, .allowAirPlay])
-        }
-        else
-        {
+        } else {
             try AVAudioSession.sharedInstance().setCategory(.playback, options: [.mixWithOthers])
         }
     }
 }
 
-private extension AVAudioSessionRouteDescription
-{
-    var isHeadsetPluggedIn: Bool
-    {
+private extension AVAudioSessionRouteDescription {
+    var isHeadsetPluggedIn: Bool {
         let isHeadsetPluggedIn = self.outputs.contains { $0.portType == .headphones || $0.portType == .bluetoothA2DP }
         return isHeadsetPluggedIn
     }
     
-    var isOutputtingToReceiver: Bool
-    {
+    var isOutputtingToReceiver: Bool {
         let isOutputtingToReceiver = self.outputs.contains { $0.portType == .builtInReceiver }
         return isOutputtingToReceiver
     }
     
-    var isOutputtingToExternalDevice: Bool
-    {
+    var isOutputtingToExternalDevice: Bool {
         let isOutputtingToExternalDevice = self.outputs.contains { $0.portType != .builtInSpeaker && $0.portType != .builtInReceiver }
         return isOutputtingToExternalDevice
     }
 }
 
-public class AudioManager: NSObject, AudioRendering
-{
+public class AudioManager: NSObject, AudioRendering {
     /// Currently only supports 16-bit interleaved Linear PCM.
-    public internal(set) var audioFormat: AVAudioFormat {
+    public var audioFormat: AVAudioFormat {
         didSet {
             self.resetAudioEngine()
         }
@@ -118,9 +107,9 @@ public class AudioManager: NSObject, AudioRendering
         }
     }
     
-    public private(set) var audioBuffer: RingBuffer
+    public var audioBuffer: RingBuffer
     
-    public internal(set) var rate = 1.0 {
+    public var rate = 1.0 {
         didSet {
             self.timePitchEffect.rate = Float(self.rate)
         }
@@ -172,20 +161,16 @@ public class AudioManager: NSObject, AudioRendering
         }
     }
             
-    public init(audioFormat: AVAudioFormat)
-    {
+    public init(audioFormat: AVAudioFormat) {
         self.audioFormat = audioFormat
         
         // Temporary. Will be replaced with more accurate RingBuffer in resetAudioEngine().
         self.audioBuffer = RingBuffer(preferredBufferSize: 4096)!
         
-        do
-        {
+        do {
             // Set category before configuring AVAudioEngine to prevent pausing any currently playing audio from another app.
             try AVAudioSession.sharedInstance().setIgnitedCategory(self.isMicEnabled)
-        }
-        catch
-        {
+        } catch {
             print(error)
         }
         

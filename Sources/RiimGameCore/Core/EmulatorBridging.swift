@@ -7,8 +7,7 @@
 import Foundation
 
 @objc(DLTAEmulatorBridging)
-public protocol EmulatorBridging: NSObjectProtocol
-{
+public protocol EmulatorBridging: NSObjectProtocol {
     /// State
     var gameURL: URL? { get }
     
