@@ -6,7 +6,7 @@
 //  Copyright © 2021 Riley Testut. All rights reserved.
 //
 
-#import "mGBAEmulatorBridge.h"
+#import "RiimGBAGameBridge.h"
 
 #include <mgba-util/common.h>
 #include <mgba/core/blip_buf.h>
@@ -45,7 +45,7 @@ typedef NS_ENUM(NSInteger, mGBAGameInput) {
     mGBAGameInputL       = 9
 };
 
-@interface mGBAEmulatorBridge ()
+@interface RiimGBAGameBridge ()
 {
     struct mCore* core;
 }
@@ -83,14 +83,14 @@ static int rumbleDown = 0;
 static struct GBALuminanceSource lux;
 static uint8_t luxLevel = 0;
 
-@implementation mGBAEmulatorBridge
+@implementation RiimGBAGameBridge
 @synthesize audioRenderer = _audioRenderer;
 @synthesize videoRenderer = _videoRenderer;
 @synthesize saveUpdateHandler = _saveUpdateHandler;
 
 + (instancetype)sharedBridge
 {
-    static mGBAEmulatorBridge *_emulatorBridge = nil;
+    static RiimGBAGameBridge *_emulatorBridge = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _emulatorBridge = [[self alloc] init];

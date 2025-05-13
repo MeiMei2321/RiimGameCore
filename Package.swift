@@ -111,6 +111,7 @@ let package = Package(
                 "../RiimGBAGame/mGBA/version.cmake",
             ],
             sources: [
+                "RiimGBAGameBridge.m",
                 "../RiimGBAGame/mGBA/src/arm/arm.c",
                 "../RiimGBAGame/mGBA/src/arm/decoder-arm.c",
                 "../RiimGBAGame/mGBA/src/arm/decoder-thumb.c",

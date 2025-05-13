@@ -1,5 +1,5 @@
 //
-//  mGBAEmulatorBridge.h
+//  RiimGBAGameBridge.h
 //  mGBABridge
 //
 //  Created by Ian Clawson on 7/26/21.
@@ -14,10 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Weverything" // Silence "Cannot find protocol definition" warning due to forward declaration.
-@interface mGBAEmulatorBridge : NSObject <DLTAEmulatorBridging>
+@interface RiimGBAGameBridge : NSObject <DLTAEmulatorBridging>
 #pragma clang diagnostic pop
 
-@property (class, nonatomic, readonly) mGBAEmulatorBridge *sharedBridge;
+@property (class, nonatomic, readonly) RiimGBAGameBridge *sharedBridge;
 
 @property (nonatomic) BOOL forceGBP;
 @property (nonatomic) NSString *idleOptimization;

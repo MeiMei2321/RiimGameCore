@@ -9,7 +9,7 @@ import Foundation
 @_exported import RiimGBAGameBridge
 
 public struct RiimGBAEmulator {
-    public let bridge = mGBAEmulatorBridge.shared
+    public let bridge = RiimGBAGameBridge.shared
 
     public init() {
         
