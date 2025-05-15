@@ -200,8 +200,7 @@ static uint8_t luxLevel = 0;
     
     [self.audioRenderer.audioBuffer writeBuffer:samples size:available * 4];
     
-    if (processVideo)
-    {
+    if (processVideo) {
         memcpy(self.videoRenderer.videoBuffer, self.videoBuffer.mutableBytes, self.videoBuffer.length);
         [self.videoRenderer processFrame];
     }
@@ -242,9 +241,7 @@ static uint8_t luxLevel = 0;
 }
 
 #pragma mark - Game Saves -
-
-- (void)saveGameSaveToURL:(NSURL *)URL
-{
+- (void)saveGameSaveToURL:(NSURL *)URL {
 }
 
 - (void)loadGameSaveFromURL:(NSURL *)URL
@@ -252,7 +249,6 @@ static uint8_t luxLevel = 0;
 }
 
 #pragma mark - Save States -
-
 - (void)saveSaveStateToURL:(NSURL *)URL
 {
     struct VFile* vf = VFileOpen([URL fileSystemRepresentation], O_CREAT | O_TRUNC | O_RDWR);

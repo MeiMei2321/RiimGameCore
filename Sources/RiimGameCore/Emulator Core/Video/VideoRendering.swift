@@ -1,9 +1,9 @@
 //
 //  VideoRendering.swift
-//  DeltaCore
+//  
 //
-//  Created by Riley Testut on 6/29/16.
-//  Copyright © 2016 Riley Testut. All rights reserved.
+//   on 6/29/16.
+//  
 //
 
 import Foundation
